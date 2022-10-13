@@ -1,0 +1,33 @@
+{
+  "name": "deplate",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CICD Template making tool for developer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkskekzzz/Deplate.git"
+  },
+  "keywords": [
+    "docker",
+    "githubaction",
+    "deploy",
+    "cicd"
+  ],
+  "author": "rkskekzzz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkskekzzz/Deplate/issues"
+  },
+  "homepage": "https://github.com/rkskekzzz/Deplate#readme",
+  "bin": {
+    "deplate": "bin/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.5",
+    "typescript": "^4.8.4"
+  }
+}
