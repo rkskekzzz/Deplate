@@ -1,4 +1,4 @@
-import { createInterface, Interface } from 'readline';
+import { createInterface, Interface as ReadlineInterface } from 'readline';
 import { Question } from '../questions.js';
 
 /**
@@ -27,14 +27,14 @@ export function logSuccess(successMessage: string): void {
 /**
  * functions - readline
  */
-export function openReadline(): Interface {
+export function openReadline(): ReadlineInterface {
   return createInterface({
     input: process.stdin,
     output: process.stdout,
   });
 }
 
-export function makeAsyncQuestion(readlineInterface: Interface, question: Question): AsyncQuestion<string> {
+export function makeAsyncQuestion(readlineInterface: ReadlineInterface, question: Question): AsyncQuestion<string> {
   return () =>
     new Promise((resolve, reject) => {
       readlineInterface.question(question.message, (answer) => {
@@ -47,15 +47,24 @@ export function makeAsyncQuestion(readlineInterface: Interface, question: Questi
     });
 }
 
-export function makeAsyncQuestions(readlineInterface: Interface, questions: Question[]): AsyncQuestion<string>[] {
+export function makeAsyncQuestions(
+  readlineInterface: ReadlineInterface,
+  questions: Question[]
+): AsyncQuestion<string>[] {
   return questions.map((question) => makeAsyncQuestion(readlineInterface, question));
 }
 
-export function makeRetryAsyncQuestion(readlineInterface: Interface, question: Question): AsyncQuestion<string> {
+export function makeRetryAsyncQuestion(
+  readlineInterface: ReadlineInterface,
+  question: Question
+): AsyncQuestion<string> {
   return () => retry(makeAsyncQuestion(readlineInterface, question));
 }
 
-export function makeRetryAsyncQuestions(readlineInterface: Interface, questions: Question[]): AsyncQuestion<string>[] {
+export function makeRetryAsyncQuestions(
+  readlineInterface: ReadlineInterface,
+  questions: Question[]
+): AsyncQuestion<string>[] {
   return questions.map((question) => makeRetryAsyncQuestion(readlineInterface, question));
 }
 
@@ -65,6 +74,6 @@ export async function runAsyncQuestions(questions: AsyncQuestion<string>[]) {
   }
 }
 
-export function closeReadline(readlineInterface: Interface): void {
+export function closeReadline(readlineInterface: ReadlineInterface): void {
   readlineInterface.close();
 }
