@@ -1,10 +1,13 @@
 #! /usr/bin/env node
-import { appendFile, mkdir } from 'fs';
 
-mkdir('./dir/test', { recursive: true }, (err) => {
-  if (err) throw err;
-  appendFile('dir/test/test.txt', 'Hello world!', (err) => {
-    if (err) throw err;
-    console.log('Saved!');
-  });
-});
+import { createWorkflowFile } from './utils/workflow.js';
+import { openReadline, closeReadline, makeRetryAsyncQuestions, runAsyncQuestions } from './utils/console.js';
+import { questions, defaultAnswer, updateAnswersFromQuestions } from './questions.js';
+
+(async () => {
+  const readlineInterface = openReadline();
+
+  await runAsyncQuestions(makeRetryAsyncQuestions(readlineInterface, questions));
+  createWorkflowFile(updateAnswersFromQuestions(defaultAnswer, questions));
+  closeReadline(readlineInterface);
+})();
