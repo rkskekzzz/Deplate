@@ -1,5 +1,11 @@
 # @teamapdan/deplate
 
+## 1.1.2
+
+### Patch Changes
+
+- 9bdf7f6: Changesets Added
+
 ## 1.1.1
 
 ### Patch Changes
