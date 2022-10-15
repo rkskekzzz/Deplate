@@ -26,7 +26,7 @@ export function pullAction(answer: Answer) {
         steps: [
           {
             name: 'Set up Access Token',
-            run: 'echo "${{ secrets.LIGHTSAIL_ACCESS_KEY }}" > ./accesskey.pem',
+            run: 'echo "${{ secrets.SSH_ACCESS_KEY }}" > ./accesskey.pem',
           },
           {
             name: 'Change Access Token Permission',
@@ -34,7 +34,7 @@ export function pullAction(answer: Answer) {
           },
           {
             name: 'Connect to Server via SSH',
-            run: 'ssh -i ./accesskey.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.LIGHTSAIL_IP }} " \\\nsudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest \\\n&& sudo docker stop backend \\\n&& sudo docker rm backend \\\n&& sudo docker run -d --name backend -p ${{ secrets.DOCKER_PORT }}:${{ secrets.DOCKER_PORT }} ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest \\\n&& exit"\n',
+            run: 'ssh -i ./accesskey.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.SSH_IP }} " \\\nsudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest \\\n&& sudo docker stop backend \\\n&& sudo docker rm backend \\\n&& sudo docker run -d --name backend -p ${{ secrets.DOCKER_PORT }}:${{ secrets.DOCKER_PORT }} ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest \\\n&& exit"\n',
           },
         ],
       },
