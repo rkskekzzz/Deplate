@@ -104,14 +104,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 <br>
 
-## Changelog
-
-### 1.1.0
-
-- Create a workflow that pushes the image to the Docker Hub
-- Connect to SSH, pull the docker image, and create a workflow that reruns the container
-
-### will be soon
+## will be soon
 
 - Create CI workflow according to each Framework or Package Manager
 - Create a Default Dockerfile according to each Framework
