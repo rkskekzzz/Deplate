@@ -1,4 +1,8 @@
-## Deplate
+# Deplate
+
+<p align='center'>
+  English | <a href='./README.ko.md'>한국어</a>
+</p>
 
 **Deplate** is a CI/CD template for developers. If you decide to use GithubAction and DockerHub for CI/CD, try **Deplate**. Useful when you are not familiar with creating GithubAction or when deploying side projects.
 

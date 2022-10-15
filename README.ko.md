@@ -1,5 +1,9 @@
 ## Deplate
 
+<p align='center'>
+  <a href='./README.md'>English</a> | 한국어
+</p>
+
 **Deplate**는 개발자를 위한 CI/CD 템플릿입니다. CI/CD를 위해 Github Action 과 Docker Hub를 사용하기로 결정했다면 **Deplate**를 사용해보세요. Github Action 작성에 익숙하지 않거나 사이드 프로젝트를 배포할 때 유용합니다.
 
 <br>
