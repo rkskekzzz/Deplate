@@ -1,5 +1,5 @@
 {
-  "name": "@apdan/deplate",
+  "name": "@teamapdan/deplate",
   "version": "1.0.0",
   "type": "module",
   "description": "CICD Template making tool for developer",
@@ -26,9 +26,6 @@
   "bin": {
     "deplate": "bin/index.js"
   },
-  "publishConfig": {
-  "access": "public"
-  },
   "devDependencies": {
     "@babel/core": "^7.19.3",
     "@babel/preset-env": "^7.19.4",
@@ -42,7 +39,6 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "node-polyfill-webpack-plugin": "^2.0.1",
     "yaml": "^2.1.3"
   }
 }
