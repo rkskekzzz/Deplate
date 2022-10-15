@@ -8,8 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { createWorkflowFile } from './utils/workflow.js';
-import { openReadline, closeReadline, makeRetryAsyncQuestions, runAsyncQuestions } from './utils/console.js';
+import { createWorkflowFile } from './utils/fs.js';
+import { openReadline, closeReadline, makeRetryAsyncQuestions, runAsyncQuestions } from './utils/readline.js';
 import { questions, defaultAnswer, updateAnswersFromQuestions } from './questions.js';
 (() => __awaiter(void 0, void 0, void 0, function* () {
     const readlineInterface = openReadline();

@@ -9,10 +9,9 @@ import { Answer } from '../questions.js';
  * - on state
  * - build strategy
  */
-export function pushImagePreset(answer: Answer) {
+export function pushAction(answer: Answer) {
   return {
-    // will be replaced with your file name
-    name: answer['fileName'],
+    name: answer['pushActionName'],
     on: {
       push: {
         branches: ['main'],

@@ -5,9 +5,12 @@ type PackageManager = typeof ALL_PACKAGE_MANAGER[number];
 type Framework = typeof ALL_FRAMEWORK[number];
 
 export type WorkflowOption = {
-  fileName: string;
-  packageManager: PackageManager;
-  framework: Framework;
+  pushFileName: string;
+  pushActionName: string;
+  pullFileName: string;
+  pullActionName: string;
   'timeout-minutes': string;
   matrix: string;
 };
+
+export type MessageType = 'INFO' | 'ERROR' | 'SUCCESS' | 'WARNING' | 'DEFAULT';

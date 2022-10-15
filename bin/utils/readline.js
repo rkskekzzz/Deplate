@@ -14,16 +14,10 @@ import { createInterface } from 'readline';
 export function retry(promiseFunction) {
     return __awaiter(this, void 0, void 0, function* () {
         return promiseFunction().catch((error) => {
-            logError(error.message);
+            console.log(error.message);
             return retry(promiseFunction);
         });
     });
-}
-export function logError(errorMeessage) {
-    console.log('❗' + errorMeessage);
-}
-export function logSuccess(successMessage) {
-    console.log('✅' + successMessage);
 }
 /**
  * functions - readline
@@ -37,8 +31,10 @@ export function openReadline() {
 export function makeAsyncQuestion(readlineInterface, question) {
     return () => new Promise((resolve, reject) => {
         readlineInterface.question(question.message, (answer) => {
-            if (!question.validate(answer)) {
-                reject(new Error(question.errorMeessage));
+            for (const validate of question.validate) {
+                if (!validate.validateFunction(answer)) {
+                    reject(new Error(validate.validateErrorMessage));
+                }
             }
             question.answer = answer;
             resolve(answer);

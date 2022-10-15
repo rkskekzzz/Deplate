@@ -1,17 +1,24 @@
+import chalk from 'chalk';
 import { WorkflowOption } from './type.js';
-import { ALL_PACKAGE_MANAGER, ALL_FRAMEWORK } from './type.js';
+import { messageTemplate } from './utils/message.js';
 /**
  * types
  */
-export type ValidateFunction = (input: string) => boolean;
 export type WorkflowOptionKey = keyof WorkflowOption;
+
+export type ValidateFunction = (input: string) => boolean;
+export type Validate = {
+  validateFunction: ValidateFunction;
+  validateErrorMessage: string;
+};
+
 export type Question = {
   workflowOptionKey: WorkflowOptionKey;
   message: string;
-  validate: ValidateFunction;
-  errorMeessage: string;
+  validate: Validate[];
   answer?: string;
 };
+
 export type Answer = {
   [key in WorkflowOptionKey]: string;
 };
@@ -26,17 +33,17 @@ export function updateAnswersFromQuestions(defaultAnswer: Answer, questions: Que
   return defaultAnswer;
 }
 
-function validatePackageName(input: string): boolean {
-  const yamlFileNameRegex = /^([a-zA-Z0-9_-]+)\.(yaml|yml)$/;
-  return yamlFileNameRegex.test(input);
+function validateFileName(input: string): boolean {
+  return /^([a-zA-Z0-9_-]+)\.(yaml|yml)$/.test(input);
 }
 
-function validatePackageManager(input: string): boolean {
-  return ALL_PACKAGE_MANAGER.includes(input as any);
+function validateFileNameSame(input: string, pushFileName: string): boolean {
+  // check file name is same without suffix
+  return input.split('.')[0] !== pushFileName.split('.')[0];
 }
 
-function validateFramework(input: string): boolean {
-  return ALL_FRAMEWORK.includes(input as any);
+function validateActionName(input: string): boolean {
+  return input === '' || /^[a-zA-Z0-9_-]+$/.test(input);
 }
 
 /**
@@ -44,29 +51,83 @@ function validateFramework(input: string): boolean {
  */
 export const questions: Question[] = [
   {
-    workflowOptionKey: 'fileName',
-    message: '📝 Enter the file name of the workflow file : ',
-    validate: validatePackageName,
-    errorMeessage: 'File name must be in the format of "filename.yaml" or "filename.yml".',
+    workflowOptionKey: 'pushFileName',
+    message: messageTemplate({
+      message: `Enter the file name of the workflow file for ${chalk.blue('push Action')}`,
+      type: 'INFO',
+      isInline: true,
+    }),
+    validate: [
+      {
+        validateFunction: validateFileName,
+        validateErrorMessage: messageTemplate({
+          message: 'The file name must be in the format of "file-name.yaml"',
+          type: 'ERROR',
+        }),
+      },
+    ],
   },
   {
-    workflowOptionKey: 'packageManager',
-    message: '📝 Enter the package manager : ',
-    validate: validatePackageManager,
-    errorMeessage: `Package manager must be one of ${ALL_PACKAGE_MANAGER.join(', ')}`,
+    workflowOptionKey: 'pushActionName',
+    message: messageTemplate({
+      message: `Enter the action name of the ${chalk.blue('push Action')}(optional)`,
+      type: 'INFO',
+      isInline: true,
+    }),
+    validate: [
+      {
+        validateFunction: validateActionName,
+        validateErrorMessage: messageTemplate({ message: 'The action name format was incorrect', type: 'ERROR' }),
+      },
+    ],
   },
   {
-    workflowOptionKey: 'framework',
-    message: '📝 Enter the framework : ',
-    validate: validateFramework,
-    errorMeessage: `Framework must be one of ${ALL_FRAMEWORK.join(', ')}`,
+    workflowOptionKey: 'pullFileName',
+    message: messageTemplate({
+      message: `Enter the file name of the workflow file for ${chalk.yellow('pull Action')}`,
+      type: 'INFO',
+      isInline: true,
+    }),
+    validate: [
+      {
+        validateFunction: validateFileName,
+        validateErrorMessage: messageTemplate({
+          message: 'The file name must be in the format of "file-name.yaml"',
+          type: 'ERROR',
+        }),
+      },
+      {
+        validateFunction: (input) => {
+          return validateFileNameSame(input, questions[0].answer ?? '');
+        },
+        validateErrorMessage: messageTemplate({
+          message: 'The file name of the pull Action must be different from the push Action',
+          type: 'ERROR',
+        }),
+      },
+    ],
+  },
+  {
+    workflowOptionKey: 'pullActionName',
+    message: messageTemplate({
+      message: `Enter the action name of the ${chalk.yellow('pull Action')}(optional)`,
+      type: 'INFO',
+      isInline: true,
+    }),
+    validate: [
+      {
+        validateFunction: validateActionName,
+        validateErrorMessage: messageTemplate({ message: 'The action name format was incorrect', type: 'ERROR' }),
+      },
+    ],
   },
 ];
 
 export const defaultAnswer: Answer = {
-  fileName: 'main',
-  packageManager: 'npm',
-  framework: 'react',
+  pushFileName: 'push.yaml',
+  pushActionName: 'Push Image',
+  pullFileName: 'pull.yaml',
+  pullActionName: 'Pull Image',
   'timeout-minutes': '60',
   matrix: '',
   // dockerUsername: '',

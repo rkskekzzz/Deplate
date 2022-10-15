@@ -1,5 +1,6 @@
 import { createInterface, Interface as ReadlineInterface } from 'readline';
 import { Question } from '../questions.js';
+import { messageTemplate } from './message.js';
 
 /**
  * types
@@ -11,17 +12,9 @@ type AsyncQuestion<T> = () => Promise<T>;
  */
 export async function retry<T>(promiseFunction: () => Promise<T>): Promise<T> {
   return promiseFunction().catch((error: Error) => {
-    logError(error.message);
+    console.log(error.message);
     return retry(promiseFunction);
   });
-}
-
-export function logError(errorMeessage: string): void {
-  console.log('❗' + errorMeessage);
-}
-
-export function logSuccess(successMessage: string): void {
-  console.log('✅' + successMessage);
 }
 
 /**
@@ -38,8 +31,10 @@ export function makeAsyncQuestion(readlineInterface: ReadlineInterface, question
   return () =>
     new Promise((resolve, reject) => {
       readlineInterface.question(question.message, (answer) => {
-        if (!question.validate(answer)) {
-          reject(new Error(question.errorMeessage));
+        for (const validate of question.validate) {
+          if (!validate.validateFunction(answer)) {
+            reject(new Error(validate.validateErrorMessage));
+          }
         }
         question.answer = answer;
         resolve(answer);

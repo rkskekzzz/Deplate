@@ -7,10 +7,9 @@
  * - on state
  * - build strategy
  */
-export function pushImagePreset(answer) {
+export function pushAction(answer) {
     return {
-        // will be replaced with your file name
-        name: answer['fileName'],
+        name: answer['pushActionName'],
         on: {
             push: {
                 branches: ['main'],

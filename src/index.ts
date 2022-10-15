@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
-import { createWorkflowFile } from './utils/workflow.js';
-import { openReadline, closeReadline, makeRetryAsyncQuestions, runAsyncQuestions } from './utils/console.js';
+import { createWorkflowFile } from './utils/fs.js';
+import { openReadline, closeReadline, makeRetryAsyncQuestions, runAsyncQuestions } from './utils/readline.js';
 import { questions, defaultAnswer, updateAnswersFromQuestions } from './questions.js';
 
 (async () => {
