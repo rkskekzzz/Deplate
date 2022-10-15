@@ -1,16 +1,21 @@
-# Deplate
+## Deplate
 
-Deplate는 개발자를 위한 CI/CD 템플릿입니다. CI/CD를 위해 Github Action 과 Docker Hub를 사용하기로 결정했다면 Deplate를 사용해보세요. Github Action 작성에 익숙하지 않더라도 편하게
-
-<br>
-
-| deplate means **dep**loy + tem**plate**
+**Deplate**는 개발자를 위한 CI/CD 템플릿입니다. CI/CD를 위해 Github Action 과 Docker Hub를 사용하기로 결정했다면 **Deplate**를 사용해보세요. Github Action 작성에 익숙하지 않거나 사이드 프로젝트를 배포할 때 유용합니다.
 
 <br>
 
+## 필독사항
+
+이 프로젝트를 실행하기전에 아래 사항들을 확인하세요
+
+- 배포에 필요한 서버에 ssh로 접속할 수 있나요?
+- Docker Hub 계정이 준비되어 있나요?
+- 루트 디렉토리에 Dockerfile이 만들어져 있나요?
+- Dockerfile에서 사용할 포트가 ssh서버에서 열려 있나요?
+
 <br>
 
-# 사전설정
+## 사전설정
 
 이 템플릿은 두개의 workflow로 되어있습니다. 각 workflow에서는 보안을 위해 Github secrets을 참조하고 있습니다. 이 패키지를 실행한 후, 정상적인 동작을 하려면 아래의 Github secrets를 모두 만들어 주셔야 합니다.
 
@@ -31,13 +36,13 @@ Deplate는 개발자를 위한 CI/CD 템플릿입니다. CI/CD를 위해 Github 
 
 <br>
 
-# 설치
+## 설치
 
 이 패키지는 npm을 통한 설치가 필요 없습니다. npx 명령을 사용하세요.
 
 <br>
 
-# 사용법
+## 사용법
 
 사용법은 아주 간단합니다! 아래 명령어를 실행합니다.
 
@@ -63,19 +68,15 @@ npx install @teamapdan/deplate
 filename.yml or filename.yaml
 ```
 
-# 구조
+## 구조
 
 각 workflow들의 의존성은 아래 그림과 같습니다.
 
+![workflow step](./assets/workflow_step.png)
+
 <br>
 
-# Contributors
-
-| contributor |     |
-| ----------- | --- |
-| a           | a   |
-
-# Changelog
+## Changelog
 
 ### 1.1.0
 
