@@ -9,7 +9,18 @@
   "imageSize": 100,
   "commit": true,
   "commitConvention": "gitmoji",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "Skyrich2000",
+      "name": "huni",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46391729?v=4",
+      "profile": "https://github.com/Skyrich2000",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
   "contributorsPerLine": 7,
   "linkToUsage": false
 }
