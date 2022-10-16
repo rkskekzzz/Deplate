@@ -1,6 +1,6 @@
 {
   "name": "@teamapdan/deplate",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "CICD Template making tool for developer",
   "main": "index.js",
   "scripts": {
