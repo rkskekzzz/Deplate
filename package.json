@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf ./bin && tsc && chmod +x ./bin/index.js",
+    "changeset": "changeset",
+    "version": "changeset version",
     "release": "yarn changeset publish"
   },
   "repository": {
