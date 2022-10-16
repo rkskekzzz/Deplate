@@ -1,5 +1,11 @@
 # @teamapdan/deplate
 
+## 1.2.5
+
+### Patch Changes
+
+- 1ac7d80: test
+
 ## 1.2.4
 
 ### Patch Changes
