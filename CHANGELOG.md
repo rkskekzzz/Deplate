@@ -1,5 +1,11 @@
 # @teamapdan/deplate
 
+## 1.3.0
+
+### Minor Changes
+
+- 7e7059d: Offical Release
+
 ## 1.2.5
 
 ### Patch Changes
