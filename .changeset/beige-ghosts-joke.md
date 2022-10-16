@@ -1,0 +1,5 @@
+---
+"@teamapdan/deplate": patch
+---
+
+test
