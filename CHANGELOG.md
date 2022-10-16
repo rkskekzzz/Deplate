@@ -1,5 +1,11 @@
 # @teamapdan/deplate
 
+## 1.2.2
+
+### Patch Changes
+
+- 66957c6: patch test
+
 ## 1.2.1
 
 ### Patch Changes
