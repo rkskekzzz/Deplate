@@ -1,5 +1,11 @@
 # @teamapdan/deplate
 
+## 1.1.3
+
+### Patch Changes
+
+- Changesets Bot added
+
 ## 1.1.2
 
 ### Patch Changes
