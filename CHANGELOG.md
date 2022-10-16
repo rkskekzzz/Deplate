@@ -1,58 +1,10 @@
 # @teamapdan/deplate
 
-## 1.1.9
+## 1.2.0
 
-### Patch Changes
+### Minor Changes
 
-- test
-
-## 1.1.8
-
-### Patch Changes
-
-- test
-
-## 1.1.7
-
-### Patch Changes
-
-- test2
-
-## 1.1.6
-
-### Patch Changes
-
-- test
-
-## 0.0.0-20221016070741
-
-### Patch Changes
-
-- test change
-
-## 0.0.0-20221016070307
-
-### Patch Changes
-
-- test
-
-## 0.0.0-20221016070132
-
-### Patch Changes
-
-- 566941d: new patch
-
-## 1.1.3
-
-### Patch Changes
-
-- Changesets Bot added
-
-## 1.1.2
-
-### Patch Changes
-
-- 9bdf7f6: Changesets Added
+- public release
 
 ## 1.1.1
 
