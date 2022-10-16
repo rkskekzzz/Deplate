@@ -1,5 +1,11 @@
 # @teamapdan/deplate
 
+## 0.0.0-20221016070307
+
+### Patch Changes
+
+- test
+
 ## 0.0.0-20221016070132
 
 ### Patch Changes
