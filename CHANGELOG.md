@@ -1,5 +1,11 @@
 # @teamapdan/deplate
 
+## 1.2.3
+
+### Patch Changes
+
+- af9ffee: publish workflow test
+
 ## 1.2.2
 
 ### Patch Changes
