@@ -1,11 +1,11 @@
 {
   "name": "@teamapdan/deplate",
-  "version": "0.0.0-20221016070307",
+  "version": "1.1.7",
   "description": "CICD Template making tool for developer",
   "main": "index.js",
   "scripts": {
     "build": "rm -rf ./bin && tsc && chmod +x ./bin/index.js",
-    "release": "yarn changeset publish --tag next"
+    "release": "yarn changeset publish"
   },
   "repository": {
     "type": "git",
