@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf ./bin && tsc && chmod +x ./bin/index.js",
-    "release": "yarn publish --access public"
+    "release": "npm publish --access public"
   },
   "repository": {
     "type": "git",
