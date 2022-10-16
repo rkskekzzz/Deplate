@@ -1,5 +1,11 @@
 # @teamapdan/deplate
 
+## 0.0.0-20221016070132
+
+### Patch Changes
+
+- 566941d: new patch
+
 ## 1.1.3
 
 ### Patch Changes
