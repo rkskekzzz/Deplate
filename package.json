@@ -4,10 +4,7 @@
   "description": "CICD Template making tool for developer",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf ./bin && tsc && chmod +x ./bin/index.js",
-    "changeset": "changeset",
-    "bump": "node ./scripts/bump.js",
-    "release": "node ./scripts/release.js"
+    "build": "rm -rf ./bin && tsc && chmod +x ./bin/index.js"
   },
   "repository": {
     "type": "git",
