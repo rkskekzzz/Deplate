@@ -24,6 +24,9 @@
   "bugs": {
     "url": "https://github.com/rkskekzzz/Deplate/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/rkskekzzz/Deplate#readme",
   "bin": {
     "deplate": "bin/index.js"
