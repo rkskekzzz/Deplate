@@ -4,7 +4,8 @@
   "description": "CICD Template making tool for developer",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf ./bin && tsc && chmod +x ./bin/index.js"
+    "build": "rm -rf ./bin && tsc && chmod +x ./bin/index.js",
+    "release": "yarn lerna run prepublish && yarn changeset publish"
   },
   "repository": {
     "type": "git",
