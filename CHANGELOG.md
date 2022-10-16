@@ -1,5 +1,12 @@
 # @teamapdan/deplate
 
+## 1.2.4
+
+### Patch Changes
+
+- e5c8c4b: test
+- e5c8c4b: workflow update
+
 ## 1.2.3
 
 ### Patch Changes
